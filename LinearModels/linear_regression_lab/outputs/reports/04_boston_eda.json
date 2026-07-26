@@ -1,0 +1,59 @@
+{
+  "shape_raw": [
+    506,
+    14
+  ],
+  "missing": {
+    "CRIM": 0,
+    "ZN": 0,
+    "INDUS": 0,
+    "CHAS": 0,
+    "NOX": 0,
+    "RM": 0,
+    "AGE": 0,
+    "DIS": 0,
+    "RAD": 0,
+    "TAX": 0,
+    "PTRATIO": 0,
+    "B": 0,
+    "LSTAT": 0,
+    "MEDV": 0
+  },
+  "preprocess": {
+    "n_after": 490,
+    "dropped_capped": 16,
+    "selected_features": [
+      "LSTAT",
+      "RM",
+      "INDUS",
+      "TAX",
+      "NOX",
+      "PTRATIO",
+      "AGE",
+      "RAD",
+      "CRIM"
+    ]
+  },
+  "corr_with_medv": {
+    "LSTAT": -0.7376627261740145,
+    "PTRATIO": -0.5077866855375623,
+    "INDUS": -0.48372516002837274,
+    "TAX": -0.4685359335677667,
+    "NOX": -0.42732077237328203,
+    "CRIM": -0.38830460858681154,
+    "RAD": -0.38162623063977735,
+    "AGE": -0.3769545650045961,
+    "CHAS": 0.17526017719029868,
+    "DIS": 0.249928734085904,
+    "B": 0.3334608196570662,
+    "ZN": 0.3604453424505433,
+    "RM": 0.6953599470715401
+  },
+  "figures": [
+    "E:\\机器学习项目文件夹\\LinearModels\\linear_regression_lab\\outputs\\figures\\04_boston_eda\\corr_heatmap.png",
+    "E:\\机器学习项目文件夹\\LinearModels\\linear_regression_lab\\outputs\\figures\\04_boston_eda\\corr_with_price.png",
+    "E:\\机器学习项目文件夹\\LinearModels\\linear_regression_lab\\outputs\\figures\\04_boston_eda\\distributions.png",
+    "E:\\机器学习项目文件夹\\LinearModels\\linear_regression_lab\\outputs\\figures\\04_boston_eda\\key_scatter.png",
+    "E:\\机器学习项目文件夹\\LinearModels\\linear_regression_lab\\outputs\\figures\\04_boston_eda\\price_boxplot.png"
+  ]
+}

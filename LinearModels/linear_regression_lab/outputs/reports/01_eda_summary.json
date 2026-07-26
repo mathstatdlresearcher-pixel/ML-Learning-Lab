@@ -1,0 +1,66 @@
+{
+  "datasets": {
+    "y1_no_noise": {
+      "description": "无噪声线性: y=0.5+2*x1+0.3*x2",
+      "noise_std": 0.0,
+      "signal_std": 0.5515580790655058,
+      "shape": [
+        80,
+        2
+      ],
+      "relevant": [
+        "x1",
+        "x2"
+      ]
+    },
+    "y2_noisy": {
+      "description": "有噪声+无关特征: y=1+2*x1+4*x2+ε, σε=0.314, junk=16",
+      "noise_std": 0.3141130671903434,
+      "signal_std": 1.2564522687613735,
+      "shape": [
+        80,
+        18
+      ],
+      "relevant": [
+        "x1",
+        "x2"
+      ]
+    },
+    "y3_no_multicollinearity": {
+      "description": "无共线线性: y=5+x0+1.2*x1+3.5*x2+ε, σε=0.174",
+      "noise_std": 0.17446395280528584,
+      "signal_std": 1.1630930187019057,
+      "shape": [
+        80,
+        3
+      ],
+      "relevant": [
+        "x0",
+        "x1",
+        "x2"
+      ]
+    },
+    "y4_multicollinearity": {
+      "description": "多重共线+无关特征, σε=3.006, junk=16",
+      "noise_std": 3.006323013499342,
+      "signal_std": 10.736867905354792,
+      "shape": [
+        80,
+        21
+      ],
+      "relevant": [
+        "x1",
+        "x2",
+        "x3",
+        "x4",
+        "x5"
+      ]
+    }
+  },
+  "csv": {
+    "y1_no_noise": "E:\\机器学习项目文件夹\\LinearModels\\linear_regression_lab\\outputs\\data\\y1_no_noise.csv",
+    "y2_noisy": "E:\\机器学习项目文件夹\\LinearModels\\linear_regression_lab\\outputs\\data\\y2_noisy.csv",
+    "y3_no_multicollinearity": "E:\\机器学习项目文件夹\\LinearModels\\linear_regression_lab\\outputs\\data\\y3_no_multicollinearity.csv",
+    "y4_multicollinearity": "E:\\机器学习项目文件夹\\LinearModels\\linear_regression_lab\\outputs\\data\\y4_multicollinearity.csv"
+  }
+}

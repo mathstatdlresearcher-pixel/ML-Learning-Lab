@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>线性回归实验 · 公式手册</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <style>
+    :root {
+      --bg: #f4f7fa;
+      --card: #ffffff;
+      --ink: #1e293b;
+      --muted: #64748b;
+      --teal: #0f766e;
+      --line: #e2e8f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(180deg, #eef6f5 0%, var(--bg) 40%, #f8fafc 100%);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 32px 20px 64px; }
+    header {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 30px rgba(15, 118, 110, 0.06);
+    }
+    h1 { margin: 0 0 8px; font-size: 28px; color: var(--teal); }
+    .sub { color: var(--muted); margin: 0; }
+    nav {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px;
+    }
+    nav a {
+      text-decoration: none; color: var(--teal);
+      background: #ecfdf5; border: 1px solid #a7f3d0;
+      padding: 6px 12px; border-radius: 999px; font-size: 13px;
+    }
+    section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 18px;
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: 20px;
+      border-left: 4px solid var(--teal);
+      padding-left: 12px;
+    }
+    h3 { margin: 22px 0 10px; font-size: 17px; color: #0f766e; }
+    .eq {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 8px 10px;
+      overflow-x: auto;
+      margin: 12px 0;
+    }
+    table {
+      width: 100%; border-collapse: collapse; margin: 12px 0 4px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line); padding: 8px 10px; text-align: left;
+    }
+    th { background: #f0fdfa; }
+    .note {
+      background: #fff7ed; border: 1px solid #fed7aa;
+      color: #9a3412; border-radius: 10px; padding: 10px 14px; font-size: 14px;
+    }
+    footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>线性回归实验 · 公式手册</h1>
+      <p class="sub">OLS / Ridge / Lasso / LARS · 评价指标 · 数据生成 · 由 MathJax 渲染，刷新即可看到清晰公式</p>
+      <nav>
+        <a href="#model">线性模型</a>
+        <a href="#ols">OLS</a>
+        <a href="#ridge">Ridge</a>
+        <a href="#lasso">Lasso</a>
+        <a href="#lars">LARS</a>
+        <a href="#scale">标准化</a>
+        <a href="#metrics">评价指标</a>
+        <a href="#data">模拟数据</a>
+        <a href="#cheat">速查表</a>
+      </nav>
+      <p class="note" style="margin-top:16px">若公式未显示：检查网络（需加载 MathJax CDN），或等待 1～2 秒后刷新。</p>
+    </header>
+
+    <section id="model">
+      <h2>1. 线性模型</h2>
+      <p>训练集有 $n$ 个样本、$p$ 个特征：</p>
+      <div class="eq">$$
+X\in\mathbb{R}^{n\times p},\quad
+y\in\mathbb{R}^{n},\quad
+\beta\in\mathbb{R}^{p}
+$$</div>
+      <p>模型与预测：</p>
+      <div class="eq">$$
+y=X\beta+\varepsilon,\qquad
+\hat y=X\hat\beta
+$$</div>
+    </section>
+
+    <section id="ols">
+      <h2>2. OLS（普通最小二乘）</h2>
+      <h3>优化目标</h3>
+      <div class="eq">$$
+\hat\beta_{\mathrm{OLS}}
+=\arg\min_{\beta}\|y-X\beta\|_2^2
+=\arg\min_{\beta}\sum_{i=1}^{n}(y_i-x_i^\top\beta)^2
+$$</div>
+      <h3>闭式解（$X^\top X$ 可逆）</h3>
+      <div class="eq">$$
+X^\top X\,\hat\beta=X^\top y,\qquad
+\hat\beta_{\mathrm{OLS}}=(X^\top X)^{-1}X^\top y
+$$</div>
+    </section>
+
+    <section id="ridge">
+      <h2>3. Ridge（$L_2$ 正则）</h2>
+      <div class="eq">$$
+\hat\beta_{\mathrm{Ridge}}
+=\arg\min_{\beta}\|y-X\beta\|_2^2+\alpha\|\beta\|_2^2,\quad\alpha>0
+$$</div>
+      <div class="eq">$$
+\hat\beta_{\mathrm{Ridge}}=(X^\top X+\alpha I)^{-1}X^\top y
+$$</div>
+    </section>
+
+    <section id="lasso">
+      <h2>4. Lasso（$L_1$ 正则）</h2>
+      <div class="eq">$$
+\hat\beta_{\mathrm{Lasso}}
+=\arg\min_{\beta}\|y-X\beta\|_2^2+\alpha\|\beta\|_1,\qquad
+\|\beta\|_1=\sum_{j=1}^{p}|\beta_j|
+$$</div>
+      <p>$L_1$ 惩罚可把部分系数压成精确 $0$，实现变量选择。</p>
+    </section>
+
+    <section id="lars">
+      <h2>5. LARS（最小角回归）</h2>
+      <p>残差与等角方向：</p>
+      <div class="eq">$$
+r=y-X\hat\beta,\qquad
+X_{\mathcal A}^\top u_{\mathcal A}=A_{\mathcal A}\mathbf 1
+$$</div>
+      <p>沿等角方向分段前进，得到整条解路径；本实验用交叉验证选择停止位置 / 非零个数。</p>
+    </section>
+
+    <section id="scale">
+      <h2>6. 特征标准化</h2>
+      <div class="eq">$$
+\tilde x_{ij}=\frac{x_{ij}-\mu_j}{\sigma_j},\quad
+\mu_j=\frac1n\sum_{i=1}^n x_{ij},\quad
+\sigma_j=\sqrt{\frac1n\sum_{i=1}^n(x_{ij}-\mu_j)^2}
+$$</div>
+      <div class="eq">$$
+\beta_j^{\mathrm{scaled}}=\beta_j\sigma_j
+\quad\text{（}y\text{ 未标准化时）}
+$$</div>
+    </section>
+
+    <section id="metrics">
+      <h2>7. 评价指标</h2>
+      <h3>决定系数 $R^2$</h3>
+      <div class="eq">$$
+R^2=1-\frac{\sum_{i=1}^{m}(y_i-\hat y_i)^2}{\sum_{i=1}^{m}(y_i-\bar y)^2}
+$$</div>
+      <h3>MSE / RMSE / MAE</h3>
+      <div class="eq">$$
+\mathrm{MSE}=\frac1m\sum_{i=1}^{m}(y_i-\hat y_i)^2
+$$</div>
+      <div class="eq">$$
+\mathrm{RMSE}=\sqrt{\mathrm{MSE}}
+=\sqrt{\frac1m\sum_{i=1}^{m}(y_i-\hat y_i)^2}
+$$</div>
+      <div class="eq">$$
+\mathrm{MAE}=\frac1m\sum_{i=1}^{m}|y_i-\hat y_i|
+$$</div>
+      <h3>VIF</h3>
+      <div class="eq">$$
+\mathrm{VIF}_j=\frac{1}{1-R_j^2}
+$$</div>
+      <table>
+        <tr><th>VIF</th><th>含义</th></tr>
+        <tr><td>&lt; 5</td><td>较安全</td></tr>
+        <tr><td>5 ～ 10</td><td>可能存在共线</td></tr>
+        <tr><td>&gt; 10</td><td>共线严重</td></tr>
+      </table>
+    </section>
+
+    <section id="data">
+      <h2>8. 模拟数据（结构公式）</h2>
+      <div class="eq">$$
+\begin{aligned}
+x_1,x_2,x_3&\sim\mathrm{Uniform}(0,1)\\
+x_4&=6.7x_1+4x_2+0.05u\\
+x_5&=2.8x_1+3.4x_4+0.01u
+\end{aligned}
+$$</div>
+      <div class="eq">$$
+\begin{aligned}
+s_1&=0.5+2x_1+0.3x_2\\
+s_2&=1+2x_1+4x_2\\
+s_3&=5+x_0+1.2x_1+3.5x_2\\
+s_4&=0.7x_1+1.1x_2-6.4x_3+x_4+x_5
+\end{aligned}
+$$</div>
+      <div class="eq">$$
+y=s+\varepsilon,\qquad
+\varepsilon\sim\mathcal N\bigl(0,(\rho\cdot\sigma_s)^2\bigr),\quad
+\sigma_s=\mathrm{Std}(s)
+$$</div>
+    </section>
+
+    <section id="cheat">
+      <h2>9. 公式速查表</h2>
+      <div class="eq">$$
+\begin{aligned}
+\hat\beta_{\mathrm{OLS}}&=(X^\top X)^{-1}X^\top y\\[8pt]
+\hat\beta_{\mathrm{Ridge}}&=(X^\top X+\alpha I)^{-1}X^\top y\\[8pt]
+\hat\beta_{\mathrm{Lasso}}&=\arg\min_{\beta}\|y-X\beta\|_2^2+\alpha\|\beta\|_1\\[8pt]
+R^2&=1-\frac{\sum_i(y_i-\hat y_i)^2}{\sum_i(y_i-\bar y)^2}\\[8pt]
+\mathrm{MSE}&=\frac1m\sum_i(y_i-\hat y_i)^2,\quad
+\mathrm{RMSE}=\sqrt{\mathrm{MSE}},\quad
+\mathrm{MAE}=\frac1m\sum_i|y_i-\hat y_i|\\[8pt]
+\mathrm{VIF}_j&=\frac{1}{1-R_j^2}
+\end{aligned}
+$$</div>
+    </section>
+
+    <footer>
+      Linear Regression Lab · 与 README.md 配套 · 用浏览器打开本文件即可
+    </footer>
+  </div>
+</body>
+</html>
