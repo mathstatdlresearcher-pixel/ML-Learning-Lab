@@ -1,0 +1,2 @@
+C,w1,w2,b,n_support,train_accuracy,train_precision_macro,train_recall_macro,train_f1_macro,test_accuracy,test_precision_macro,test_recall_macro,test_f1_macro
+1.0,0.43862053482602326,0.5717986602114,2.8399080209534704,2,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
