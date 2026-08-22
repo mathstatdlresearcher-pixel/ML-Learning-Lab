@@ -1,0 +1,28 @@
+{
+  "best_params": {
+    "estimator__max_depth": 3,
+    "learning_rate": 0.5,
+    "n_estimators": 200
+  },
+  "cv_AUC": 0.9941176470588236,
+  "test": {
+    "Accuracy": 0.9736842105263158,
+    "Precision": 1.0,
+    "Recall": 0.9285714285714286,
+    "F1": 0.9629629629629629,
+    "Precision_macro": 0.98,
+    "Recall_macro": 0.9642857142857143,
+    "F1_macro": 0.9712773998488284,
+    "AUC": 0.9914021164021163
+  },
+  "train": {
+    "Accuracy": 1.0,
+    "Precision": 1.0,
+    "Recall": 1.0,
+    "F1": 1.0,
+    "Precision_macro": 1.0,
+    "Recall_macro": 1.0,
+    "F1_macro": 1.0,
+    "AUC": 1.0
+  }
+}

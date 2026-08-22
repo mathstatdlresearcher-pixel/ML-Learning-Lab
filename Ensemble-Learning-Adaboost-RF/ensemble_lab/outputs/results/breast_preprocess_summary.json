@@ -1,0 +1,9 @@
+{
+  "n_features": 30,
+  "n_train": 455,
+  "n_test": 114,
+  "malignant_train": 0.37362637362637363,
+  "malignant_test": 0.3684210526315789,
+  "scaled_mean_abs": 1.467024507571196e-15,
+  "scaled_std_mean": 1.0
+}

@@ -1,0 +1,19 @@
+{
+  "dt_best_params": {
+    "criterion": "absolute_error",
+    "max_depth": 8,
+    "min_samples_leaf": 6,
+    "min_samples_split": 18
+  },
+  "adaboost_best_params": {
+    "learning_rate": 0.2,
+    "loss": "exponential",
+    "n_estimators": 100
+  },
+  "rf_params": {
+    "n_estimators": 100,
+    "max_depth": 14,
+    "max_features": 0.5,
+    "min_samples_split": 2
+  }
+}

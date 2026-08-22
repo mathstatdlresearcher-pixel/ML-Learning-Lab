@@ -1,0 +1,8 @@
+﻿step,detail
+1.列名去空格,concave points_worst 等列名去首尾空格
+2.标签重编码,"1=恶性, 0=良性，便于 Precision/Recall 关注阳性类"
+3.缺失检查,缺失值总数=0，无需填补
+4.重复检查,重复行=0
+5.IQR 截尾,1.5→3.0 IQR 温和截尾，降低极端值对 LR/SVM 的影响
+6.分层划分,"test_size=0.2, stratify, n_train=455, n_test=114"
+7.标准化,StandardScaler 仅拟合训练集，供 LR / SVM / Lars 使用；树模型用原始尺度

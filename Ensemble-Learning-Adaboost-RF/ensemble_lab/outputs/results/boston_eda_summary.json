@@ -1,0 +1,9 @@
+{
+  "n_samples": 506,
+  "n_features": 13,
+  "n_missing": 0,
+  "n_capped50": 16,
+  "price_mean": 22.532806324110677,
+  "price_median": 21.2,
+  "chas_rate": 0.0691699604743083
+}

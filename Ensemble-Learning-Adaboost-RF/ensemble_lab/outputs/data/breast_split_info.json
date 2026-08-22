@@ -1,0 +1,160 @@
+{
+  "n_train": 455,
+  "n_test": 114,
+  "n_features": 30,
+  "pos_rate_train": 0.37362637362637363,
+  "pos_rate_test": 0.3684210526315789,
+  "clip": {
+    "radius_mean": {
+      "n_clipped": 1,
+      "lo": -0.5400000000000009,
+      "hi": 28.02
+    },
+    "texture_mean": {
+      "n_clipped": 1,
+      "lo": -0.7199999999999953,
+      "hi": 38.69
+    },
+    "perimeter_mean": {
+      "n_clipped": 0,
+      "lo": -11.619999999999976,
+      "hi": 190.89
+    },
+    "area_mean": {
+      "n_clipped": 5,
+      "lo": -666.9000000000001,
+      "hi": 1869.9
+    },
+    "smoothness_mean": {
+      "n_clipped": 1,
+      "lo": 0.029579999999999995,
+      "hi": 0.16209
+    },
+    "compactness_mean": {
+      "n_clipped": 1,
+      "lo": -0.13151999999999994,
+      "hi": 0.3268399999999999
+    },
+    "concavity_mean": {
+      "n_clipped": 0,
+      "lo": -0.27386000000000005,
+      "hi": 0.43412000000000006
+    },
+    "concave points_mean": {
+      "n_clipped": 0,
+      "lo": -0.14076,
+      "hi": 0.23507
+    },
+    "symmetry_mean": {
+      "n_clipped": 1,
+      "lo": 0.060499999999999915,
+      "hi": 0.2971000000000001
+    },
+    "fractal_dimension_mean": {
+      "n_clipped": 4,
+      "lo": 0.03244000000000001,
+      "hi": 0.09137999999999999
+    },
+    "radius_se": {
+      "n_clipped": 7,
+      "lo": -0.5071000000000001,
+      "hi": 1.2184
+    },
+    "texture_se": {
+      "n_clipped": 4,
+      "lo": -1.0864000000000003,
+      "hi": 3.3943000000000003
+    },
+    "perimeter_se": {
+      "n_clipped": 12,
+      "lo": -3.6470000000000002,
+      "hi": 8.61
+    },
+    "area_se": {
+      "n_clipped": 22,
+      "lo": -64.16999999999999,
+      "hi": 127.20999999999998
+    },
+    "smoothness_se": {
+      "n_clipped": 7,
+      "lo": -0.0037620000000000015,
+      "hi": 0.017077000000000002
+    },
+    "compactness_se": {
+      "n_clipped": 6,
+      "lo": -0.045029999999999994,
+      "hi": 0.09056
+    },
+    "concavity_se": {
+      "n_clipped": 6,
+      "lo": -0.06578999999999999,
+      "hi": 0.12292999999999998
+    },
+    "concave points_se": {
+      "n_clipped": 3,
+      "lo": -0.013578000000000003,
+      "hi": 0.035926
+    },
+    "symmetry_se": {
+      "n_clipped": 9,
+      "lo": -0.009800000000000003,
+      "hi": 0.048440000000000004
+    },
+    "fractal_dimension_se": {
+      "n_clipped": 11,
+      "lo": -0.004682000000000001,
+      "hi": 0.011488000000000002
+    },
+    "radius_worst": {
+      "n_clipped": 0,
+      "lo": -4.3299999999999965,
+      "hi": 36.129999999999995
+    },
+    "texture_worst": {
+      "n_clipped": 0,
+      "lo": -4.840000000000003,
+      "hi": 55.64
+    },
+    "perimeter_worst": {
+      "n_clipped": 1,
+      "lo": -39.76000000000002,
+      "hi": 249.27000000000004
+    },
+    "area_worst": {
+      "n_clipped": 7,
+      "lo": -1190.8000000000002,
+      "hi": 2790.1000000000004
+    },
+    "smoothness_worst": {
+      "n_clipped": 0,
+      "lo": 0.02840000000000001,
+      "hi": 0.23419999999999996
+    },
+    "compactness_worst": {
+      "n_clipped": 3,
+      "lo": -0.4285000000000001,
+      "hi": 0.9148000000000001
+    },
+    "concavity_worst": {
+      "n_clipped": 1,
+      "lo": -0.6907000000000001,
+      "hi": 1.1881000000000002
+    },
+    "concave points_worst": {
+      "n_clipped": 0,
+      "lo": -0.22447999999999996,
+      "hi": 0.45080999999999993
+    },
+    "symmetry_worst": {
+      "n_clipped": 4,
+      "lo": 0.0479,
+      "hi": 0.5204
+    },
+    "fractal_dimension_worst": {
+      "n_clipped": 2,
+      "lo": 0.009599999999999997,
+      "hi": 0.15394
+    }
+  },
+  "note": "diagnosis: 1=恶性, 0=良性"
+}

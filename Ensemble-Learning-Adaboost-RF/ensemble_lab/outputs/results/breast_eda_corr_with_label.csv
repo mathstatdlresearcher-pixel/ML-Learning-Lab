@@ -1,0 +1,31 @@
+﻿feature,abs_corr,cn
+concave points_worst,0.7935660171412692,凹点-最值
+perimeter_worst,0.7829141371737585,周长-最值
+concave points_mean,0.7766138400204347,凹点-均值
+radius_worst,0.7764537785950386,半径-最值
+perimeter_mean,0.7426355297258322,周长-均值
+area_worst,0.7338250349210506,面积-最值
+radius_mean,0.7300285113754558,半径-均值
+area_mean,0.7089838365853893,面积-均值
+concavity_mean,0.696359707171905,凹度-均值
+concavity_worst,0.6596102103692327,凹度-最值
+compactness_mean,0.5965336775082526,紧致度-均值
+compactness_worst,0.5909982378417913,紧致度-最值
+radius_se,0.5671338208247171,半径-标准误
+perimeter_se,0.5561407034314826,周长-标准误
+area_se,0.5482359402780236,面积-标准误
+texture_worst,0.45690282139679794,纹理-最值
+smoothness_worst,0.4214648610664021,平滑度-最值
+symmetry_worst,0.41629431104861864,对称性-最值
+texture_mean,0.41518529984520386,纹理-均值
+concave points_se,0.4080423327165041,凹点-标准误
+smoothness_mean,0.35855996508593174,平滑度-均值
+symmetry_mean,0.3304985542625468,对称性-均值
+fractal_dimension_worst,0.3238721887208236,分形维-最值
+compactness_se,0.29299924424885787,紧致度-标准误
+concavity_se,0.25372976598083014,凹度-标准误
+fractal_dimension_se,0.07797241739025607,分形维-标准误
+smoothness_se,0.06701601057948725,平滑度-标准误
+fractal_dimension_mean,0.012837602698432373,分形维-均值
+texture_se,0.008303332973877425,纹理-标准误
+symmetry_se,0.006521755870647959,对称性-标准误
