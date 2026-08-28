@@ -1,0 +1,380 @@
+{
+  "eda": {
+    "n_rows": 891,
+    "n_cols": 12,
+    "survival_rate": 0.3838383838383838,
+    "missing": {
+      "Cabin": 0.7710437710437711,
+      "Age": 0.19865319865319866,
+      "Embarked": 0.002244668911335578,
+      "PassengerId": 0.0,
+      "Survived": 0.0,
+      "Pclass": 0.0,
+      "Name": 0.0,
+      "Sex": 0.0,
+      "SibSp": 0.0,
+      "Parch": 0.0,
+      "Ticket": 0.0,
+      "Fare": 0.0
+    }
+  },
+  "split": {
+    "train": 569,
+    "val": 143,
+    "labeled_test": 179,
+    "kaggle_test": 418,
+    "protocol": "train.csv 先 20% 带标签测试，剩余 80% 再 80/20 训练/验证；test.csv 无标签",
+    "random_state": 2023,
+    "stratify": true
+  },
+  "drop_cols": [
+    "Cabin"
+  ],
+  "fill_log": {
+    "Embarked": {
+      "type": "mode",
+      "value": "S"
+    },
+    "Age": {
+      "type": "lagrange",
+      "k": 5
+    },
+    "Fare": {
+      "type": "lagrange",
+      "k": 5
+    }
+  },
+  "dummy_cols": [
+    "Sex",
+    "Embarked",
+    "Title",
+    "Pclass",
+    "AgeBin",
+    "FareBin",
+    "TicketGroup",
+    "FamilyBin",
+    "CabinDeck",
+    "SexPclass"
+  ],
+  "n_features": 54,
+  "features": [
+    "Age",
+    "SibSp",
+    "Parch",
+    "Fare",
+    "FamilySize",
+    "IsAlone",
+    "HasCabin",
+    "NameLen",
+    "TicketFreq",
+    "IsMother",
+    "FareLog",
+    "Sex_female",
+    "Sex_male",
+    "Embarked_C",
+    "Embarked_Q",
+    "Embarked_S",
+    "Title_Master",
+    "Title_Miss",
+    "Title_Mr",
+    "Title_Mrs",
+    "Title_Rare",
+    "Title_Royal",
+    "Pclass_1",
+    "Pclass_2",
+    "Pclass_3",
+    "AgeBin_Child",
+    "AgeBin_Teen",
+    "AgeBin_YoungAdult",
+    "AgeBin_MidAge",
+    "AgeBin_Senior",
+    "FareBin_Q1",
+    "FareBin_Q2",
+    "FareBin_Q3",
+    "FareBin_Q4",
+    "TicketGroup_NUM",
+    "TicketGroup_PREF",
+    "FamilyBin_Alone",
+    "FamilyBin_Large",
+    "FamilyBin_Small",
+    "CabinDeck_A",
+    "CabinDeck_B",
+    "CabinDeck_C",
+    "CabinDeck_D",
+    "CabinDeck_E",
+    "CabinDeck_F",
+    "CabinDeck_G",
+    "CabinDeck_T",
+    "CabinDeck_U",
+    "SexPclass_female_P1",
+    "SexPclass_female_P2",
+    "SexPclass_female_P3",
+    "SexPclass_male_P1",
+    "SexPclass_male_P2",
+    "SexPclass_male_P3"
+  ],
+  "best_params": {
+    "DecisionTree": {
+      "criterion": "gini",
+      "max_depth": 5,
+      "min_samples_leaf": 8,
+      "min_samples_split": 2
+    },
+    "LogisticRegression": {
+      "clf__C": 0.1,
+      "clf__class_weight": null,
+      "clf__penalty": "l1"
+    },
+    "AdaBoost": {
+      "estimator__max_depth": 2,
+      "learning_rate": 0.03,
+      "n_estimators": 60
+    },
+    "RandomForest": {
+      "max_depth": 6,
+      "n_estimators": 240
+    },
+    "GBDT": {
+      "learning_rate": 0.05,
+      "max_depth": 2,
+      "n_estimators": 80,
+      "subsample": 1.0
+    },
+    "XGBoost": {
+      "colsample_bytree": 0.8,
+      "learning_rate": 0.05,
+      "max_depth": 3,
+      "n_estimators": 80,
+      "subsample": 0.8
+    }
+  },
+  "val_metrics": {
+    "DecisionTree": {
+      "Accuracy": 0.8741258741258742,
+      "Precision": 0.8363636363636363,
+      "Recall": 0.8363636363636363,
+      "F1": 0.8363636363636363,
+      "AUC": 0.925,
+      "AP": 0.8911219693957068
+    },
+    "LogisticRegression": {
+      "Accuracy": 0.8811188811188811,
+      "Precision": 0.8653846153846154,
+      "Recall": 0.8181818181818182,
+      "F1": 0.8411214953271028,
+      "AUC": 0.9301652892561982,
+      "AP": 0.9030328323033447
+    },
+    "AdaBoost": {
+      "Accuracy": 0.8601398601398601,
+      "Precision": 0.7966101694915254,
+      "Recall": 0.8545454545454545,
+      "F1": 0.8245614035087718,
+      "AUC": 0.9251033057851239,
+      "AP": 0.9063026711052548
+    },
+    "RandomForest": {
+      "Accuracy": 0.8811188811188811,
+      "Precision": 0.8653846153846154,
+      "Recall": 0.8181818181818182,
+      "F1": 0.8411214953271028,
+      "AUC": 0.9357438016528925,
+      "AP": 0.9216412806015442
+    },
+    "GBDT": {
+      "Accuracy": 0.8811188811188811,
+      "Precision": 0.8653846153846154,
+      "Recall": 0.8181818181818182,
+      "F1": 0.8411214953271028,
+      "AUC": 0.9305785123966943,
+      "AP": 0.9151778676531882
+    },
+    "XGBoost": {
+      "Accuracy": 0.8741258741258742,
+      "Precision": 0.8627450980392157,
+      "Recall": 0.8,
+      "F1": 0.8301886792452831,
+      "AUC": 0.9384297520661156,
+      "AP": 0.9267148349237493
+    }
+  },
+  "test_metrics": {
+    "DecisionTree": {
+      "Accuracy": 0.7597765363128491,
+      "Precision": 0.6710526315789473,
+      "Recall": 0.7391304347826086,
+      "F1": 0.7034482758620689,
+      "AUC": 0.8197628458498024,
+      "AP": 0.747992954545555
+    },
+    "LogisticRegression": {
+      "Accuracy": 0.8044692737430168,
+      "Precision": 0.7428571428571429,
+      "Recall": 0.7536231884057971,
+      "F1": 0.748201438848921,
+      "AUC": 0.836627140974967,
+      "AP": 0.8039300123692752
+    },
+    "AdaBoost": {
+      "Accuracy": 0.776536312849162,
+      "Precision": 0.6790123456790124,
+      "Recall": 0.7971014492753623,
+      "F1": 0.7333333333333334,
+      "AUC": 0.8561264822134387,
+      "AP": 0.8082748700187868
+    },
+    "RandomForest": {
+      "Accuracy": 0.8100558659217877,
+      "Precision": 0.7692307692307693,
+      "Recall": 0.7246376811594203,
+      "F1": 0.7462686567164178,
+      "AUC": 0.8648880105401844,
+      "AP": 0.8245854753106088
+    },
+    "GBDT": {
+      "Accuracy": 0.8044692737430168,
+      "Precision": 0.7428571428571429,
+      "Recall": 0.7536231884057971,
+      "F1": 0.748201438848921,
+      "AUC": 0.8627140974967061,
+      "AP": 0.8199061818884106
+    },
+    "XGBoost": {
+      "Accuracy": 0.8100558659217877,
+      "Precision": 0.7611940298507462,
+      "Recall": 0.7391304347826086,
+      "F1": 0.75,
+      "AUC": 0.86034255599473,
+      "AP": 0.8256849643435445
+    }
+  },
+  "train_metrics": {
+    "DecisionTree": {
+      "Accuracy": 0.8471001757469244,
+      "Precision": 0.8133971291866029,
+      "Recall": 0.7798165137614679,
+      "F1": 0.7962529274004685,
+      "AUC": 0.9046302830706501,
+      "AP": 0.8643138928578511
+    },
+    "LogisticRegression": {
+      "Accuracy": 0.8383128295254832,
+      "Precision": 0.828125,
+      "Recall": 0.7293577981651376,
+      "F1": 0.7756097560975609,
+      "AUC": 0.8808842363888236,
+      "AP": 0.8601881404771579
+    },
+    "AdaBoost": {
+      "Accuracy": 0.8383128295254832,
+      "Precision": 0.7889908256880734,
+      "Recall": 0.7889908256880734,
+      "F1": 0.7889908256880734,
+      "AUC": 0.9016309887869521,
+      "AP": 0.8830748927311582
+    },
+    "RandomForest": {
+      "Accuracy": 0.8506151142355008,
+      "Precision": 0.8518518518518519,
+      "Recall": 0.7385321100917431,
+      "F1": 0.791154791154791,
+      "AUC": 0.922828615489166,
+      "AP": 0.9042188730435745
+    },
+    "GBDT": {
+      "Accuracy": 0.8418277680140598,
+      "Precision": 0.8333333333333334,
+      "Recall": 0.7339449541284404,
+      "F1": 0.7804878048780488,
+      "AUC": 0.9004025196685748,
+      "AP": 0.8792587911351945
+    },
+    "XGBoost": {
+      "Accuracy": 0.8646748681898067,
+      "Precision": 0.8578680203045685,
+      "Recall": 0.7752293577981652,
+      "F1": 0.8144578313253011,
+      "AUC": 0.9250829870095926,
+      "AP": 0.9085346510870921
+    }
+  },
+  "cv_best_auc": {
+    "DecisionTree": 0.8277955683360203,
+    "LogisticRegression": 0.8587835363130154,
+    "AdaBoost": 0.8629947975378698,
+    "RandomForest": 0.8589610176917744,
+    "GBDT": 0.870155627209345,
+    "XGBoost": 0.8700616383289164
+  },
+  "cv_multi": {
+    "DecisionTree": {
+      "roc_auc": 0.8277955683360203,
+      "f1": 0.7296615783298271,
+      "precision": 0.7260722610722611,
+      "recall": 0.7385835095137421,
+      "accuracy": 0.7890700201832013
+    },
+    "LogisticRegression": {
+      "roc_auc": 0.8587835363130154,
+      "f1": 0.7566641360461586,
+      "precision": 0.8146376811594204,
+      "recall": 0.7161733615221987,
+      "accuracy": 0.8242353671790095
+    },
+    "AdaBoost": {
+      "roc_auc": 0.8629947975378698,
+      "f1": 0.7480062013535035,
+      "precision": 0.7762302540418042,
+      "recall": 0.7299154334038056,
+      "accuracy": 0.8119080888060859
+    },
+    "RandomForest": {
+      "roc_auc": 0.8589610176917744,
+      "f1": 0.750840234629319,
+      "precision": 0.8129547807265199,
+      "recall": 0.7070824524312896,
+      "accuracy": 0.8207265952491849
+    },
+    "GBDT": {
+      "roc_auc": 0.870155627209345,
+      "f1": 0.7613969220117984,
+      "precision": 0.8104284261378083,
+      "recall": 0.7252642706131078,
+      "accuracy": 0.8259897531439219
+    },
+    "XGBoost": {
+      "roc_auc": 0.8700616383289164,
+      "f1": 0.735124831327363,
+      "precision": 0.7851459514225472,
+      "recall": 0.7027484143763214,
+      "accuracy": 0.8084614190343113
+    }
+  },
+  "winner_by_val_f1": "RandomForest",
+  "best_on_test_f1": "XGBoost",
+  "fare_bins": [
+    0.0,
+    7.8958,
+    14.0,
+    30.5,
+    600.0
+  ],
+  "title_survival": {
+    "Master": 0.575,
+    "Miss": 0.7027027027027027,
+    "Mr": 0.15667311411992263,
+    "Mrs": 0.7936507936507936,
+    "Rare": 0.25,
+    "Royal": 1.0
+  },
+  "sex_survival": {
+    "female": 0.7420382165605095,
+    "male": 0.18890814558058924
+  },
+  "pclass_survival": {
+    "1": 0.6296296296296297,
+    "2": 0.47282608695652173,
+    "3": 0.24236252545824846
+  },
+  "kaggle_pred_rate": 0.3827751196172249
+}

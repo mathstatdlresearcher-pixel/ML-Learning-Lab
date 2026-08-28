@@ -1,0 +1,7 @@
+metric,LogisticRegression,RandomForest,GBDT,XGBoost,DecisionTree,AdaBoost
+Precision,1,2,3,4,5,6
+Recall,3,4,5,6,2,1
+F1,1,2,3,5,4,6
+AUC,4,2,3,1,6,5
+Accuracy,1,2,3,5,4,6
+AP,5,2,3,1,6,4
